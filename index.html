@@ -14,53 +14,97 @@
     <title>Frontend Mentor | Password generator app</title>
   </head>
   <body>
-    <main>
-      <h1>Password Generator</h1>
+    <main class="pg">
+      <h1 class="pg__title">Password Generator</h1>
 
-      <section>
-        <input type="text" inactive />
-        <div>
-          <p>Copied!</p>
-          <button><img src="/assets/images/icon-copy.svg" alt="copy" /></button>
+      <section class="pg__output">
+        <input type="text" class="pg__display" readonly />
+        <div class="pg__copy-wrapper">
+          <p id="copy-feedback" class="pg__copy-feedback">Copied!</p>
+          <button class="pg__copy-btn">
+            <img src="/assets/images/icon-copy.svg" alt="copy" />
+          </button>
         </div>
       </section>
 
-      <section>
-        <div class="length">
-          <div>
-            <label for="char-lenght">Character Length</label>
-            <p class="slider__length"></p>
+      <section class="pg__controls">
+        <div class="char-length">
+          <div class="char-length__header">
+            <label for="char-length" class="char-length__label"
+              >Character Length</label
+            >
+            <p class="char-length__value"></p>
           </div>
-          <div id="char-length" class="slider"></div>
+          <div id="char-length" class="char-length__slider"></div>
         </div>
 
-        <div>
-          <input type="checkbox" name="Uppercase" id="uppercase" />
-          <label for="uppecase">Include Uppercase Letters</label>
-          <input type="checkbox" name="lowercase" id="lowercase" />
-          <label for="lowercase">Include Lowercase Letters</label>
-          <input type="checkbox" name="numbers" id="numbers" />
-          <label for="numbers">Include Numbers</label>
-          <input type="checkbox" name="symbols" id="symbols" />
-          <label for="symbols">Include Symbols</label>
+        <div class="options">
+          <div class="options__item">
+            <input
+              type="checkbox"
+              name="uppercase"
+              id="uppercase"
+              class="options__checkbox"
+            />
+            <label for="uppercase" class="options__label"
+              >Include Uppercase Letters</label
+            >
+          </div>
+
+          <div class="options__item">
+            <input
+              type="checkbox"
+              name="lowercase"
+              id="lowercase"
+              class="options__checkbox"
+            />
+            <label for="lowercase" class="options__label"
+              >Include Lowercase Letters</label
+            >
+          </div>
+
+          <div class="options__item">
+            <input
+              type="checkbox"
+              name="numbers"
+              id="numbers"
+              class="options__checkbox"
+            />
+            <label for="numbers" class="options__label">Include Numbers</label>
+          </div>
+
+          <div class="options__item">
+            <input
+              type="checkbox"
+              name="symbols"
+              id="symbols"
+              class="options__checkbox"
+            />
+            <label for="symbols" class="options__label">Include Symbols</label>
+          </div>
         </div>
 
-        <div>
+        <div class="pg__footer">
           <div class="strength">
-            <label for="strength">Strength</label>
-            <div>
-              <p id="strength-type"></p>
-              <div class="strength__bx-1"></div>
-              <div class="strength__bx-2"></div>
-              <div class="strength__bx-3"></div>
-              <div class="strength__bx-4"></div>
+            <label class="strength__label">Strength</label>
+            <div class="strength__indicator">
+              <p id="strength-lvl" class="strength__text"></p>
+              <div class="strength__bar"></div>
+              <div class="strength__bar"></div>
+              <div class="strength__bar"></div>
+              <div class="strength__bar"></div>
             </div>
           </div>
-          <button class="generate__button">
-            GENERATE <img src="/assets/images/icon-arrow-right.svg" alt="" />
+
+          <button class="generate-btn">
+            GENERATE
+            <img
+              src="/assets/images/icon-arrow-right.svg"
+              alt=""
+              class="generate-btn__icon"
+            />
           </button>
         </div>
-        Strength Generate
       </section>
     </main>
   </body>

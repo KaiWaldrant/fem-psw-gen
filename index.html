@@ -1,29 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Password generator app</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  Password Generator
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <main>
+      <h1>Password Generator</h1>
 
-  P4$5W0rD!
+      <section>
+        <input type="text" inactive />
+        <div>
+          <p>Copied!</p>
+          <button><img src="/assets/images/icon-copy.svg" alt="copy" /></button>
+        </div>
+      </section>
 
-  Character Length
+      <section>
+        <div class="length">
+          <div>
+            <label for="char-lenght">Character Length</label>
+            <p class="slider__length"></p>
+          </div>
+          <div id="char-length" class="slider"></div>
+        </div>
 
-  Include Uppercase Letters
-  Include Lowercase Letters
-  Include Numbers
-  Include Symbols
+        <div>
+          <input type="checkbox" name="Uppercase" id="uppercase" />
+          <label for="uppecase">Include Uppercase Letters</label>
+          <input type="checkbox" name="lowercase" id="lowercase" />
+          <label for="lowercase">Include Lowercase Letters</label>
+          <input type="checkbox" name="numbers" id="numbers" />
+          <label for="numbers">Include Numbers</label>
+          <input type="checkbox" name="symbols" id="symbols" />
+          <label for="symbols">Include Symbols</label>
+        </div>
 
-  Strength
-
-  Generate
-
-</body>
+        <div>
+          <div class="strength">
+            <label for="strength">Strength</label>
+            <div>
+              <p id="strength-type"></p>
+              <div class="strength__bx-1"></div>
+              <div class="strength__bx-2"></div>
+              <div class="strength__bx-3"></div>
+              <div class="strength__bx-4"></div>
+            </div>
+          </div>
+          <button class="generate__button">
+            GENERATE <img src="/assets/images/icon-arrow-right.svg" alt="" />
+          </button>
+        </div>
+        Strength Generate
+      </section>
+    </main>
+  </body>
 </html>

@@ -11,34 +11,53 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="js/script.js" defer></script>
+
     <title>Frontend Mentor | Password generator app</title>
   </head>
-  <body>
+  <body class="bg-gradient-1">
     <main class="pg">
-      <h1 class="pg__title">Password Generator</h1>
+      <h1 class="pg__title text-grey-600">Password Generator</h1>
 
-      <section class="pg__output">
-        <input type="text" class="pg__display" readonly />
+      <section class="pg__output bg-grey-800">
+        <input
+          type="text"
+          class="pg__display text-grey-200"
+          placeholder="P4$5W0rD!"
+          readonly
+        />
         <div class="pg__copy-wrapper">
-          <p id="copy-feedback" class="pg__copy-feedback">Copied!</p>
-          <button class="pg__copy-btn">
+          <p id="copy-feedback" class="pg__copy-feedback text-green-200">
+            COPIED
+          </p>
+          <button class="pg__copy-btn bg-transparent">
             <img src="/assets/images/icon-copy.svg" alt="copy" />
           </button>
         </div>
       </section>
 
-      <section class="pg__controls">
+      <section class="pg__controls bg-grey-800">
         <div class="char-length">
           <div class="char-length__header">
-            <label for="char-length" class="char-length__label"
+            <label for="char-length" class="char-length__label text-grey-200"
               >Character Length</label
             >
-            <p class="char-length__value"></p>
+            <p class="char-length__value text-green-200 fs-500">0</p>
           </div>
-          <div id="char-length" class="char-length__slider"></div>
+          <input
+            type="range"
+            name="char-length"
+            class="char-length__slider"
+            id="char-length"
+            min="1"
+            max="20"
+          />
         </div>
 
-        <div class="options">
+        <div class="options text-grey-200">
           <div class="options__item">
             <input
               type="checkbox"
@@ -85,18 +104,22 @@
         </div>
 
         <div class="pg__footer">
-          <div class="strength">
-            <label class="strength__label">Strength</label>
+          <div class="strength bg-grey-850">
+            <label class="strength__label text-grey-600">Strength</label>
             <div class="strength__indicator">
-              <p id="strength-lvl" class="strength__text"></p>
-              <div class="strength__bar"></div>
-              <div class="strength__bar"></div>
-              <div class="strength__bar"></div>
-              <div class="strength__bar"></div>
+              <p id="strength-lvl" class="strength__text text-grey-200">
+                MEDIUM
+              </p>
+              <div class="strength__bars">
+                <div class="strength__bar"></div>
+                <div class="strength__bar"></div>
+                <div class="strength__bar"></div>
+                <div class="strength__bar"></div>
+              </div>
             </div>
           </div>
 
-          <button class="generate-btn">
+          <button class="generate-btn bg-green-200">
             GENERATE
             <img
               src="/assets/images/icon-arrow-right.svg"

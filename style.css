@@ -158,11 +158,20 @@ body {
 }
 
 .generate-btn {
+    /*all: unset;*/
+    outline: transparent;
+    border-color: transparent;
     display: flex;
     gap: 1rem;
     padding-block: 1rem;
     justify-content: center;
     align-items: center;
+}
+
+.generate-btn:hover {
+    background-color: transparent;
+    color: var(--clr-green-200);
+    border-color: var(--clr-green-200);
 }
 
 .generate-btn__icon {

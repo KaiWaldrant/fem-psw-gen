@@ -74,19 +74,52 @@ body {
 
 .pg__controls {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
 }
 
 .char-length {
     display: grid;
-    gap: 0.5rem;
+    gap: 1.125rem;
 }
 
 .char-length__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.char-length__slider {
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+    height: 8px;
+    outline: none;
+    background-color: var(--clr-grey-850);
+}
+
+.char-length__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--clr-grey-200);
+    /*border: 1px solid var(--clr-grey-200);*/
+    cursor: pointer;
+}
+
+.char-length__slider::-webkit-slider-thumb:hover {
+    background-color: var(--clr-grey-850);
+    border: 2px solid var(--clr-green-200);
+}
+
+.char-length__slider::-moz-range-thumb {
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--clr-grey-200);
+    border: 1px solid var(--clr-grey-200);
+    cursor: pointer;
 }
 
 .options {

@@ -198,6 +198,7 @@ body {
     padding-block: 1rem;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .generate-btn:hover {

@@ -125,6 +125,38 @@ body {
 .options {
     display: grid;
     gap: 1rem;
+    align-items: center;
+}
+
+.options__item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.options__checkbox {
+    appearance: none;
+    border: 2px solid var(--clr-grey-200);
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    outline: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.options__checkbox:checked {
+    background-color: var(--clr-green-200);
+    border-color: var(--clr-green-200);
+}
+
+.options__checkbox:checked:after {
+    content: url("/assets/images/icon-check.svg");
+    height: 8px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
 }
 
 .pg__footer {

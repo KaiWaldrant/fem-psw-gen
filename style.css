@@ -66,10 +66,15 @@ body {
     align-items: center;
 }
 
+.hidden {
+    display: none;
+}
+
 .pg__copy-btn {
     all: unset;
     width: 21px;
     height: 24px;
+    cursor: pointer;
 }
 
 .pg__controls {

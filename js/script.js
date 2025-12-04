@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const charLengthValue = document.getElementById("char-length-Value");
   const generateBtn = document.getElementById("generate-btn");
   const arrowRight = document.getElementById("arrow-right");
+  const strengthLevel = document.getElementById("strength-lvl");
 
   let options = {
     lowercase: false,
@@ -53,10 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let password = [];
 
     // Add one character from each enabled set
-    for (let set of sets) {
+    const guaranteed = Math.min(sets.length, length);
+    for (let i = 0; i < guaranteed; i++) {
       const array = new Uint32Array(1);
       crypto.getRandomValues(array);
-      password.push(set[array[0] % set.length]);
+      password.push(sets[i][array[0] % sets[i].length]);
     }
 
     // Fill the rest with random characters from all sets
@@ -76,11 +78,84 @@ document.addEventListener("DOMContentLoaded", () => {
     return password.join("");
   };
 
+  const getPasswordStrength = (length, options) => {
+    let score = 0;
+
+    // Length scoring
+    if (length === 0) return "";
+
+    if (length >= 16) score += 3;
+    else if (length >= 12) score += 2;
+    else if (length >= 8) score += 1;
+    else if (length >= 3) score = 0;
+
+    if (score === 0) return "TOO WEAK!";
+
+    // Complexity scoring
+    if (options.uppercase) score += 1;
+    if (options.lowercase) score += 1;
+    if (options.numbers) score += 1;
+    if (options.symbols) score += 2;
+
+    // Determine strength
+    if (score <= 3) return "TOO WEAK!";
+    if (score <= 5) return "WEAK";
+    if (score <= 7) return "MEDIUM";
+    return "STRONG";
+  };
+
+  const setStrengthLevelColor = (level) => {
+    const strengthBars = document.querySelectorAll(".strength__bar");
+
+    const bars = [
+      { filled: false, color: "" },
+      { filled: false, color: "" },
+      { filled: false, color: "" },
+      { filled: false, color: "" },
+    ];
+
+    const lvlcolor = {
+      "TOO WEAK!": "bg-red-500",
+      WEAK: "bg-orange-400",
+      MEDIUM: "bg-yellow-300",
+      STRONG: "bg-green-200",
+    };
+
+    if (level === "TOO WEAK!") {
+      bars[0] = { filled: true, color: lvlcolor[level] };
+    } else if (level === "WEAK") {
+      bars[0] = { filled: true, color: lvlcolor[level] };
+      bars[1] = { filled: true, color: lvlcolor[level] };
+    } else if (level === "MEDIUM") {
+      bars[0] = { filled: true, color: lvlcolor[level] };
+      bars[1] = { filled: true, color: lvlcolor[level] };
+      bars[2] = { filled: true, color: lvlcolor[level] };
+    } else if (level === "STRONG") {
+      bars[0] = { filled: true, color: lvlcolor[level] };
+      bars[1] = { filled: true, color: lvlcolor[level] };
+      bars[2] = { filled: true, color: lvlcolor[level] };
+      bars[3] = { filled: true, color: lvlcolor[level] };
+    }
+
+    console.log(bars);
+
+    strengthBars.forEach((bar, index) => {
+      if (bars[index].filled) {
+        bar.classList.remove("bg-*");
+        bar.classList.add(bars[index].color);
+      } else {
+        bar.classList.remove("bg-*");
+      }
+    });
+  };
+
   generateBtn.addEventListener("click", () => {
     const length = slider.value;
     const password = generatePassword(length);
     console.log(password);
     passwordField.value = password;
+    strengthLevel.textContent = getPasswordStrength(length, options);
+    setStrengthLevelColor(strengthLevel.textContent);
   });
 
   // copy button

@@ -246,6 +246,10 @@ body {
     .pg__content {
         font-size: var(--fs-400);
     }
+
+    .pg__footer {
+        gap: 2rem;
+    }
 }
 
 /*Utilities*/

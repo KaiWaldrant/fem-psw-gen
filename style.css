@@ -309,6 +309,22 @@ body {
     background-color: var(--clr-red-500);
 }
 
+.border-green-200 {
+    border-color: var(--clr-green-200);
+}
+
+.border-yellow-300 {
+    border-color: var(--clr-yellow-300);
+}
+
+.border-orange-400 {
+    border-color: var(--clr-orange-400);
+}
+
+.border-red-500 {
+    border-color: var(--clr-red-500);
+}
+
 /* Gradient */
 .bg-gradient-1 {
     background: var(--gradient-1);

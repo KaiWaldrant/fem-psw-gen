@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
 
     // Length scoring
-    if (length === 0) return "";
+    if (length === "0") return "";
 
     if (length >= 16) score += 3;
     else if (length >= 12) score += 2;
@@ -104,6 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return "STRONG";
   };
 
+  const removeClassStartingWith = (element, prefix) => {
+    element.className = element.className
+      .split(" ")
+      .filter((c) => !c.startsWith(prefix))
+      .join(" ");
+  };
+
   const setStrengthLevelColor = (level) => {
     const strengthBars = document.querySelectorAll(".strength__bar");
 
@@ -114,37 +121,85 @@ document.addEventListener("DOMContentLoaded", () => {
       { filled: false, color: "" },
     ];
 
-    const lvlcolor = {
+    const bgColor = {
       "TOO WEAK!": "bg-red-500",
       WEAK: "bg-orange-400",
       MEDIUM: "bg-yellow-300",
       STRONG: "bg-green-200",
     };
 
-    if (level === "TOO WEAK!") {
-      bars[0] = { filled: true, color: lvlcolor[level] };
-    } else if (level === "WEAK") {
-      bars[0] = { filled: true, color: lvlcolor[level] };
-      bars[1] = { filled: true, color: lvlcolor[level] };
-    } else if (level === "MEDIUM") {
-      bars[0] = { filled: true, color: lvlcolor[level] };
-      bars[1] = { filled: true, color: lvlcolor[level] };
-      bars[2] = { filled: true, color: lvlcolor[level] };
-    } else if (level === "STRONG") {
-      bars[0] = { filled: true, color: lvlcolor[level] };
-      bars[1] = { filled: true, color: lvlcolor[level] };
-      bars[2] = { filled: true, color: lvlcolor[level] };
-      bars[3] = { filled: true, color: lvlcolor[level] };
-    }
+    const borderColor = {
+      "TOO WEAK!": "border-red-500",
+      WEAK: "border-orange-400",
+      MEDIUM: "border-yellow-300",
+      STRONG: "border-green-200",
+    };
 
-    console.log(bars);
+    if (level === "TOO WEAK!") {
+      bars[0] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+    } else if (level === "WEAK") {
+      bars[0] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+      bars[1] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+    } else if (level === "MEDIUM") {
+      bars[0] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+      bars[1] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+      bars[2] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+    } else if (level === "STRONG") {
+      bars[0] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+      bars[1] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+      bars[2] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+      bars[3] = {
+        filled: true,
+        bg: bgColor[level],
+        border: borderColor[level],
+      };
+    }
 
     strengthBars.forEach((bar, index) => {
       if (bars[index].filled) {
-        bar.classList.remove("bg-*");
-        bar.classList.add(bars[index].color);
+        removeClassStartingWith(bar, "bg-");
+        removeClassStartingWith(bar, "border-");
+        bar.classList.add(bars[index].bg);
+        bar.classList.add(bars[index].border);
       } else {
-        bar.classList.remove("bg-*");
+        removeClassStartingWith(bar, "bg-");
+        removeClassStartingWith(bar, "border-");
       }
     });
   };
@@ -152,7 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
   generateBtn.addEventListener("click", () => {
     const length = slider.value;
     const password = generatePassword(length);
-    console.log(password);
     passwordField.value = password;
     strengthLevel.textContent = getPasswordStrength(length, options);
     setStrengthLevelColor(strengthLevel.textContent);

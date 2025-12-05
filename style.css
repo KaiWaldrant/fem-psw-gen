@@ -49,6 +49,11 @@ body {
     margin-inline: auto;
 }
 
+.pg__content {
+    display: grid;
+    gap: 1rem;
+}
+
 .pg__output {
     display: flex;
     padding: 1rem;
@@ -215,6 +220,32 @@ body {
 .generate-btn__icon {
     width: 11.11px;
     height: 12px;
+}
+
+@media (min-width: 768px) {
+    .pg {
+        max-width: 540px;
+        gap: 2rem;
+    }
+
+    .pg__title {
+        font-size: var(--fs-500);
+    }
+
+    .pg__output,
+    .pg__controls {
+        padding-inline: 2rem;
+        padding: 1.5rem;
+    }
+
+    .pg__display {
+        font-size: var(--fs-600);
+    }
+
+    .pg__copy-feedback,
+    .pg__content {
+        font-size: var(--fs-400);
+    }
 }
 
 /*Utilities*/

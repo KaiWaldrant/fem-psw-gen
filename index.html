@@ -22,122 +22,131 @@
     <main class="pg">
       <h1 class="pg__title text-grey-600">Password Generator</h1>
 
-      <section class="pg__output bg-grey-800">
-        <input
-          type="text"
-          id="password"
-          class="pg__display text-grey-200"
-          placeholder="P4$5W0rD!"
-          readonly
-        />
-        <div class="pg__copy-wrapper">
-          <p id="copy-feedback" class="pg__copy-feedback text-green-200 hidden">
-            COPIED
-          </p>
-          <button id="copy-btn" class="pg__copy-btn bg-transparent">
-            <img src="/assets/images/icon-copy.svg" alt="copy" />
-          </button>
-        </div>
-      </section>
-
-      <section class="pg__controls bg-grey-800">
-        <div class="char-length">
-          <div class="char-length__header">
-            <label for="char-length" class="char-length__label text-grey-200"
-              >Character Length</label
-            >
-            <p
-              id="char-length-Value"
-              class="char-length__value text-green-200 fs-500"
-            >
-              0
-            </p>
-          </div>
+      <div class="pg__content">
+        <section class="pg__output bg-grey-800">
           <input
-            type="range"
-            name="char-length"
-            class="char-length__slider"
-            id="char-length"
-            min="0"
-            max="20"
-            value="0"
+            type="text"
+            id="password"
+            class="pg__display text-grey-200"
+            placeholder="P4$5W0rD!"
+            readonly
           />
-        </div>
-
-        <div class="options text-grey-200">
-          <div class="options__item">
-            <input
-              type="checkbox"
-              name="uppercase"
-              id="uppercase"
-              class="options__checkbox"
-            />
-            <label for="uppercase" class="options__label"
-              >Include Uppercase Letters</label
+          <div class="pg__copy-wrapper">
+            <p
+              id="copy-feedback"
+              class="pg__copy-feedback text-green-200 hidden"
             >
+              COPIED
+            </p>
+            <button id="copy-btn" class="pg__copy-btn bg-transparent">
+              <img src="/assets/images/icon-copy.svg" alt="copy" />
+            </button>
           </div>
+        </section>
 
-          <div class="options__item">
+        <section class="pg__controls bg-grey-800">
+          <div class="char-length">
+            <div class="char-length__header">
+              <label for="char-length" class="char-length__label text-grey-200"
+                >Character Length</label
+              >
+              <p
+                id="char-length-Value"
+                class="char-length__value text-green-200 fs-500"
+              >
+                0
+              </p>
+            </div>
             <input
-              type="checkbox"
-              name="lowercase"
-              id="lowercase"
-              class="options__checkbox"
+              type="range"
+              name="char-length"
+              class="char-length__slider"
+              id="char-length"
+              min="0"
+              max="20"
+              value="0"
             />
-            <label for="lowercase" class="options__label"
-              >Include Lowercase Letters</label
-            >
           </div>
 
-          <div class="options__item">
-            <input
-              type="checkbox"
-              name="numbers"
-              id="numbers"
-              class="options__checkbox"
-            />
-            <label for="numbers" class="options__label">Include Numbers</label>
-          </div>
+          <div class="options text-grey-200">
+            <div class="options__item">
+              <input
+                type="checkbox"
+                name="uppercase"
+                id="uppercase"
+                class="options__checkbox"
+              />
+              <label for="uppercase" class="options__label"
+                >Include Uppercase Letters</label
+              >
+            </div>
 
-          <div class="options__item">
-            <input
-              type="checkbox"
-              name="symbols"
-              id="symbols"
-              class="options__checkbox"
-            />
-            <label for="symbols" class="options__label">Include Symbols</label>
-          </div>
-        </div>
+            <div class="options__item">
+              <input
+                type="checkbox"
+                name="lowercase"
+                id="lowercase"
+                class="options__checkbox"
+              />
+              <label for="lowercase" class="options__label"
+                >Include Lowercase Letters</label
+              >
+            </div>
 
-        <div class="pg__footer">
-          <div class="strength bg-grey-850">
-            <label class="strength__label text-grey-600">Strength</label>
-            <div class="strength__indicator">
-              <p id="strength-lvl" class="strength__text text-grey-200"></p>
-              <div class="strength__bars">
-                <div class="strength__bar"></div>
-                <div class="strength__bar"></div>
-                <div class="strength__bar"></div>
-                <div class="strength__bar"></div>
-              </div>
+            <div class="options__item">
+              <input
+                type="checkbox"
+                name="numbers"
+                id="numbers"
+                class="options__checkbox"
+              />
+              <label for="numbers" class="options__label"
+                >Include Numbers</label
+              >
+            </div>
+
+            <div class="options__item">
+              <input
+                type="checkbox"
+                name="symbols"
+                id="symbols"
+                class="options__checkbox"
+              />
+              <label for="symbols" class="options__label"
+                >Include Symbols</label
+              >
             </div>
           </div>
 
-          <button
-            id="generate-btn"
-            class="generate-btn bg-green-200 text-grey-800"
-          >
-            <p class="generate-btn__text">GENERATE</p>
-            <img
-              id="arrow-right"
-              src="/assets/images/icon-arrow-right.svg"
-              alt="icon arrow right"
-              class="generate-btn__icon"
-            />
-          </button>
-        </div>
-      </section>
+          <div class="pg__footer">
+            <div class="strength bg-grey-850">
+              <label class="strength__label text-grey-600">Strength</label>
+              <div class="strength__indicator">
+                <p id="strength-lvl" class="strength__text text-grey-200"></p>
+                <div class="strength__bars">
+                  <div class="strength__bar"></div>
+                  <div class="strength__bar"></div>
+                  <div class="strength__bar"></div>
+                  <div class="strength__bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              id="generate-btn"
+              class="generate-btn bg-green-200 text-grey-800"
+            >
+              <p class="generate-btn__text">GENERATE</p>
+              <img
+                id="arrow-right"
+                src="/assets/images/icon-arrow-right.svg"
+                alt="icon arrow right"
+                class="generate-btn__icon"
+              />
+            </button>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
